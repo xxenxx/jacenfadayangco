@@ -1,0 +1,258 @@
+/* Base styling */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a{
+  text-decoration: none;
+}
+
+body {
+  background-color: rgb(24, 32, 48);
+  
+}
+
+.main-dashboard-container{
+  width: 100%;
+  height: 100vh;
+}
+
+.trailer-container{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.inner-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  
+}
+
+.thumbnail-text-button-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 70px;
+  margin-top: 50px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.button-container button {
+  font-size: 16px;
+  padding: 7px 15px;
+  border-radius: 5px;
+  font-weight: 700;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+
+.play-trailer-button {
+  background-color: white;
+  border: none;
+}
+
+.play-trailer-button:hover {
+  background-color: slateblue;
+  color: white;
+}
+
+.anime-characters-button{
+  border: 2px solid rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+  background-color: transparent;
+}
+
+.anime-characters-button:hover {
+  border-color: slateblue;
+  background-color: slateblue;
+}
+
+.thumbnail-video {
+  width: 400px;
+  height:  178px;
+}
+
+.main-video-thumbnail,
+.main-image-thumbnail{
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display:block;
+}
+
+.outer-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  flex-direction: column;
+  padding-top:  50px;
+}
+
+.inner-container {
+  display: flex;
+  gap: 40px;
+  width: 100%;
+  padding: 0 70px;
+  height: 100%;
+}
+
+/* Left panel with search */
+.left-side {
+  position: sticky;
+  top: 20px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+.left-side input[type="search"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background-color: #262a38;
+  color: #e0e0e0;
+  font-size: 16px;
+  outline: none;
+}
+
+.left-side img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 3px rgba(0, 120, 255, 0.5),
+              0 0 10px 5px rgba(255, 80, 0, 0.5);
+}
+
+.left-side video{
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 3px rgba(0, 120, 255, 0.5),
+              0 0 10px 5px rgba(255, 80, 0, 0.5);
+}
+
+
+/* Right-side grid and card styling */
+.right-side {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+  max-height: 100vh;
+  padding-right: 10px;
+}
+
+/* Modern scrollbar styling */
+.right-side::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+.right-side::-webkit-scrollbar-thumb {
+  background-color: #58a6ff; /* Color of the scrollbar thumb */
+  border-radius: 6px; /* Rounded corners */
+  border: 3px solid rgba(0, 0, 0, 0); /* Add space around the thumb */
+}
+
+.right-side::-webkit-scrollbar-track {
+  background: #1a1f2e; /* Background of the scrollbar track */
+  border-radius: 6px; /* Rounded corners for the track */
+}
+
+/* For Firefox */
+.right-side {
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #58a6ff #1a1f2e; /* Thumb color and track color */
+}
+
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+  padding: 50px;
+}
+
+.character-card {
+  background: #1a1f2e;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+/* Gradient shadow animation */
+.character-card:hover {
+  transform: translateY(-5px);
+  animation: gradientShadow 1.5s infinite;
+}
+
+@keyframes gradientShadow {
+  0% {
+    box-shadow: 0 0 10px 3pt rgba(0, 120, 255, 0.5), 
+                0 0 10px 6px rgba(255, 80, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 15px 6px rgba(255, 80, 0, 0.5), 
+                0 0 15px 10px rgba(0, 120, 255, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 10px 3px rgba(0, 120, 255, 0.5), 
+                0 0 10px 6px rgba(255, 80, 0, 0.5);
+  }
+}
+
+.character-thumbnail {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.character-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.character-name {
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  color: #4e5f72;
+  background-color: #1a1f2e;
+}
+
+.hide {
+	display: none;
+}
